@@ -1,0 +1,4 @@
+- [ ] No se introducen datos sensibles
+- [ ] Se validaron entradas
+- [ ] Cumple OWASP Top 10
+- [ ] Cumple estándares corporativos
