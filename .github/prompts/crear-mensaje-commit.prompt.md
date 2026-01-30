@@ -1,12 +1,12 @@
 ---
 name: Crear mensaje de commit
-agent: copilot-chat
+agent: ask
 description: Genera mensajes de commit siguiendo las reglas de commits convencionales
-command: /crear-mensaje-commit
 ---
 Lee y aplica OBLIGATORIAMENTE las reglas definidas en:
 
-.github/instructions/copilot-standards.instructions.md
+- .github/instructions/commit-messages-standard.instructions.md
+- .github/copilot-policy.yml
 
 Instrucciones:
 

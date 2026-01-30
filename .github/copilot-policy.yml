@@ -1,0 +1,80 @@
+version: 1.0
+profile: banking-secure
+
+security:
+  block_secrets: true
+  forbid_patterns:
+    - eval
+    - exec
+    - system
+    - Runtime.exec
+    - md5
+    - sha1
+    - des
+    - rc4
+    - ECB
+  forbid_hardcoded_secrets: true
+  forbid_disable_auth: true
+  forbid_skip_validation: true
+  forbid_logging_sensitive: true
+  require_encryption_in_transit: true
+  require_encryption_at_rest: true
+
+privacy:
+  forbid_personal_data: true
+  default_data_classification: confidential
+  allowed_data_classes:
+    - public
+    - internal
+    - confidential
+    - regulated
+
+auth:
+  require_token_validation: true
+  require_role_based_access: true
+  require_least_privilege: true
+
+crypto:
+  allowed_hash:
+    - bcrypt
+    - argon2
+    - pbkdf2
+  allowed_tls: ">=1.2"
+  forbid_custom_crypto: true
+
+input_validation:
+  require_sanitization: true
+  require_size_limits: true
+  require_output_encoding: true
+
+logging:
+  forbid_sensitive: true
+  require_audit_logs: true
+
+dependencies:
+  forbid_unmaintained: true
+  forbid_critical_vulns: true
+  require_sbom: true
+  require_signature_verification: true
+
+testing:
+  hard:
+    require_tests_for_logic: true
+    forbid_failing_tests: true
+  soft:
+    target_coverage: 80
+
+devops:
+  require_sast: true
+  require_secret_scan: true
+  require_dependency_scan: true
+  block_on_critical_findings: true
+
+governance:
+  enforce_conventional_commits: true
+  require_pr_review: true
+  require_traceability: true
+
+process:
+  require_error_free_state: true
+  require_correction_cycle: true
